@@ -1,0 +1,4 @@
+. save generated defs in a per-version dir, so that we can have many versions
+  at the same time?
+
+. more options for the cli script
