@@ -1,33 +1,5 @@
 <?php
 /**
-* GOAL: build equivalent of firebug's dom explorer for ez content tree
-*
-* . serializing 1 level / many levels is ok, via ezdebug
-* . but we want to serialize 1 level at a time, doing drill-down via ajax
-*
-* . approach one:
-*   serialize 1 level (ie including direct child objs)
-*   do not display objs directly, but send instead their ids+types
-*   we need a (ajax) fetch function for retrieving every obj by its id
-*
-* . approach two:
-*   serialize 0 levels, rely on knowledge of returned attr. types to get dynamic simple attributes and skip complex attributes
-*   when an attr. is asked for, the current obj id is requested, along with its type and attr. name
-*   to avoid using infinite memory when walking down the chain, we need to have some obj classes that we know how to fetch from db (basically all, via constructor ?)
-*
-* problems:
-* - static attributes that are nested arrays: how to retrieve them? all in one pass?
-* - attributes that are tagged as 'any', 'mixed'
-* - attributes that are dynamic and whose type is not persistent => fetch them
-*
-* 'Scraping Docs':
-* . need to scrape also the 'persistent' part from obj page + check it with index page
-* . for every persistent obj page, check with corresponding class def
-*   - attr. here but not there
-*   - attr. there but not here
-*   - static / non static errors
-*   - type errors for static attributes
-*
 * @author Gaetano Giunta
 * @version $Id$
 * @copyright (c) 2010 G. Giunta
@@ -43,6 +15,8 @@ class ezPODocScanner
     static $docbegin2 = '<h1>Objects</h1>';
     static $docend2 = '<div';
     static $scalartypes = array( 'string', 'integer', 'boolean', 'float', 'double', 'null' );
+    /// @todo use correct function to get extension root dir
+    static $storagedir = 'extension/ezpersistentobject_inspector/classes/podefs/';
 
     static protected $defs = array();
 
@@ -166,9 +140,9 @@ class ezPODocScanner
         else
         {
             /// @todo make sure there is no .. or other crap in $classname
-            if ( file_exists( "extension/ezdebug/classes/podefs/$classname.php" ) )
+            if ( file_exists( self::$storagedir."$classname.php" ) )
             {
-                include( "extension/ezdebug/classes/podefs/$classname.php" );
+                include( self::$storagedir."$classname.php" );
                 /// @todo test that $ezpodesc is set
                 self::$defs[$classname] = $ezpodesc;
                 return self::$defs[$classname];

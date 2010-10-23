@@ -120,8 +120,7 @@ foreach( $descriptions as $obj => $description )
         }
     }
 
-    /// @todo use correct function to get extension root dir
-    file_put_contents( "extension/ezdebug/classes/podefs/$obj.php", "<?php\n\$ezpodesc = " . var_export( $description, true ) . ";\n?>" );
+    file_put_contents( ezPODocScanner::$storagedir."$obj.php", "<?php\n\$ezpodesc = " . var_export( $description, true ) . ";\n?>" );
 }
 
 if ( !$isQuiet )
