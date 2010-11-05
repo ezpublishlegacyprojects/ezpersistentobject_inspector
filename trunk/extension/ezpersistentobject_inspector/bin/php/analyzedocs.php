@@ -207,7 +207,7 @@ foreach( $descriptions as $fetch => $description )
 
 if ( !$isQuiet )
 {
-    $cli->output( 'Parsed ' . count( $descriptions ) . ' Fetch defintions' );
+    $cli->output( 'Parsed ' . count( $descriptions ) . ' Fetch definitions' );
 }
 
 $script->shutdown();
