@@ -5,7 +5,7 @@ $fetchdesc = array (
     'top_parent_node_id' => 
     array (
       'type' => 'integer',
-      'required' => false,
+      'required' => true,
       'desc' => 'The ID number of the top node.',
     ),
     'limit' => 

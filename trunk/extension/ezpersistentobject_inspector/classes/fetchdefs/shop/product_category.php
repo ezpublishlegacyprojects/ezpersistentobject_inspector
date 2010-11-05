@@ -5,7 +5,7 @@ $fetchdesc = array (
     'category_id' => 
     array (
       'type' => 'integer',
-      'required' => false,
+      'required' => true,
       'desc' => 'The identifier of the target product category.',
     ),
   ),

@@ -5,7 +5,7 @@ $fetchdesc = array (
     'contentobject' => 
     array (
       'type' => 'object',
-      'required' => false,
+      'required' => true,
       'desc' => 'The target object.',
     ),
   ),

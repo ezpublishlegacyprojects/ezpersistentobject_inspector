@@ -5,7 +5,7 @@ $fetchdesc = array (
     'parent_node_id' => 
     array (
       'type' => 'integer',
-      'required' => false,
+      'required' => true,
       'desc' => 'The ID number of the parent node.',
     ),
     'class_filter_type' => 

@@ -5,13 +5,13 @@ $fetchdesc = array (
     'class_id' => 
     array (
       'type' => 'integer',
-      'required' => false,
+      'required' => true,
       'desc' => 'The ID number of the target class.',
     ),
     'user_id' => 
     array (
       'type' => 'integer',
-      'required' => false,
+      'required' => true,
       'desc' => 'The ID number of the user (object ID).',
     ),
   ),

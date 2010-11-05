@@ -5,13 +5,13 @@ $fetchdesc = array (
     'module' => 
     array (
       'type' => 'string',
-      'required' => false,
+      'required' => true,
       'desc' => 'The name of the module.',
     ),
     'function' => 
     array (
       'type' => 'string',
-      'required' => false,
+      'required' => true,
       'desc' => 'The name of the function.',
     ),
     'user_id' => 

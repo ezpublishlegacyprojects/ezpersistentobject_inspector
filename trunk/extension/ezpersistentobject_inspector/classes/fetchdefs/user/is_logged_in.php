@@ -5,7 +5,7 @@ $fetchdesc = array (
     'user_id' => 
     array (
       'type' => 'integer',
-      'required' => false,
+      'required' => true,
       'desc' => 'The ID number of the user that should be checked.',
     ),
   ),

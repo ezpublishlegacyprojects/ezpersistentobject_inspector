@@ -5,7 +5,7 @@ $fetchdesc = array (
     'class_id' => 
     array (
       'type' => 'integer',
-      'required' => false,
+      'required' => true,
       'desc' => 'The identifier or ID number of the of class that should be fetched.',
     ),
   ),

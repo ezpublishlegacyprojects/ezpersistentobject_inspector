@@ -123,7 +123,7 @@ class ezFetchDocScanner
                     $pname = strtolower( trim( $matches[1] ) );
                     $ptype = strtolower( trim( $matches[2] ) );
                     $desc = trim( $matches[3] );
-                    $required = ( trim( $matches[3] ) == 'Yes.' );
+                    $required = ( trim( $matches[4] ) == 'Yes.' );
                     /*if ( $fix )
                     {
                         if ( isset( self::$known_types[$classname][$attrname] ) )
@@ -144,7 +144,7 @@ class ezFetchDocScanner
                         }
                     }*/
                     $out['params'][$pname] = array(
-                        'type' => $ptype,
+                        'type' => preg_replace( array( '/^bool$/', '/interger/', ), array( 'boolean', 'integer' ), $ptype ),
                         'required' => $required,
                         'desc' => strip_tags( $desc )
                         );

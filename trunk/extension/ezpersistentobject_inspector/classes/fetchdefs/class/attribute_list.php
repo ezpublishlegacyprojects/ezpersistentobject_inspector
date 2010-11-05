@@ -4,8 +4,8 @@ $fetchdesc = array (
   array (
     'class_id' => 
     array (
-      'type' => 'interger',
-      'required' => false,
+      'type' => 'integer',
+      'required' => true,
       'desc' => 'The ID number of the target class.',
     ),
   ),

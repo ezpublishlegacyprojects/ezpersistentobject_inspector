@@ -5,7 +5,7 @@ $fetchdesc = array (
     'user_id' => 
     array (
       'type' => 'integer',
-      'required' => false,
+      'required' => true,
       'desc' => 'The user to fetch policies from',
     ),
   ),

@@ -5,13 +5,13 @@ $fetchdesc = array (
     'contentobject_id' => 
     array (
       'type' => 'integer',
-      'required' => false,
+      'required' => true,
       'desc' => 'The ID number of the object representing the source product.',
     ),
     'limit' => 
     array (
       'type' => 'integer',
-      'required' => false,
+      'required' => true,
       'desc' => 'The number of objects that should be fetched.',
     ),
   ),

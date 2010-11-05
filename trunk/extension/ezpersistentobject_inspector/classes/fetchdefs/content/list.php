@@ -5,7 +5,7 @@ $fetchdesc = array (
     'parent_node_id' => 
     array (
       'type' => 'mixed',
-      'required' => false,
+      'required' => true,
       'desc' => 'The ID number(s) of the parent  node(s).',
     ),
     'sort_by' => 

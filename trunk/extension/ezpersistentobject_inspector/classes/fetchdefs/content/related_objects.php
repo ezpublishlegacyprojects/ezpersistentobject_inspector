@@ -5,7 +5,7 @@ $fetchdesc = array (
     'object_id' => 
     array (
       'type' => 'integer',
-      'required' => false,
+      'required' => true,
       'desc' => 'The ID number of the target object.',
     ),
     'attribute_identifier' => 

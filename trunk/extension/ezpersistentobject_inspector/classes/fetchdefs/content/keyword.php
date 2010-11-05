@@ -5,7 +5,7 @@ $fetchdesc = array (
     'alphabet' => 
     array (
       'type' => 'string',
-      'required' => false,
+      'required' => true,
       'desc' => 'The sequence that should be matched.',
     ),
     'strict_matching' => 

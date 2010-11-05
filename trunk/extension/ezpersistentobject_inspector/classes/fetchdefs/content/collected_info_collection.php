@@ -5,13 +5,13 @@ $fetchdesc = array (
     'collection_id' => 
     array (
       'type' => 'integer',
-      'required' => false,
+      'required' => true,
       'desc' => 'The ID number of the collection that should be fetched.',
     ),
     'contentobject_id' => 
     array (
       'type' => 'integer',
-      'required' => false,
+      'required' => true,
       'desc' => 'The ID number of the object that should be fetched.',
     ),
   ),

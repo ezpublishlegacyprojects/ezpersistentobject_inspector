@@ -5,7 +5,7 @@ $fetchdesc = array (
     'code' => 
     array (
       'type' => 'string',
-      'required' => false,
+      'required' => true,
       'desc' => 'The three-character code of the target currency.',
     ),
   ),

@@ -5,7 +5,7 @@ $fetchdesc = array (
     'attribute_id' => 
     array (
       'type' => 'integer',
-      'required' => false,
+      'required' => true,
       'desc' => 'The ID number of the class attribute that should be fetched.',
     ),
     'version_id' => 

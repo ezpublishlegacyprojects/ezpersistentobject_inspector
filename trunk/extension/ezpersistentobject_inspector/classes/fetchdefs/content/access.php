@@ -5,13 +5,13 @@ $fetchdesc = array (
     'access' => 
     array (
       'type' => 'string',
-      'required' => false,
+      'required' => true,
       'desc' => 'The desired access method (see below).',
     ),
     'contentobject' => 
     array (
       'type' => 'object',
-      'required' => false,
+      'required' => true,
       'desc' => 'The target/location (either an object or a node).',
     ),
     'contentclass_id' => 

@@ -5,7 +5,7 @@ $fetchdesc = array (
     'production_id' => 
     array (
       'type' => 'integer',
-      'required' => false,
+      'required' => true,
       'desc' => 'The ID of the target wishlist.',
     ),
     'offset' => 

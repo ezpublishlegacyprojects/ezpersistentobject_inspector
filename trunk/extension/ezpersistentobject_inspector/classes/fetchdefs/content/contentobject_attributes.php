@@ -5,7 +5,7 @@ $fetchdesc = array (
     'version' => 
     array (
       'type' => 'object',
-      'required' => false,
+      'required' => true,
       'desc' => 'The target version (must be an ezcontentobjectversion object).',
     ),
     'language_code' => 

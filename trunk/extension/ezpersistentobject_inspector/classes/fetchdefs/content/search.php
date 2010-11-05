@@ -5,7 +5,7 @@ $fetchdesc = array (
     'text' => 
     array (
       'type' => 'string',
-      'required' => false,
+      'required' => true,
       'desc' => 'The text that should be matched.',
     ),
     'subtree_array' => 

@@ -5,13 +5,13 @@ $fetchdesc = array (
     'object_id' => 
     array (
       'type' => 'integer',
-      'required' => false,
+      'required' => true,
       'desc' => 'The ID number of the target object.',
     ),
     'version_id' => 
     array (
       'type' => 'integer',
-      'required' => false,
+      'required' => true,
       'desc' => 'The version number that should be fetched.',
     ),
   ),

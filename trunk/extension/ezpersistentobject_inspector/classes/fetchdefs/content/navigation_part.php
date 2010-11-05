@@ -5,7 +5,7 @@ $fetchdesc = array (
     'identifier' => 
     array (
       'type' => 'string',
-      'required' => false,
+      'required' => true,
       'desc' => 'The identifier of the desired navigation part.',
     ),
   ),
