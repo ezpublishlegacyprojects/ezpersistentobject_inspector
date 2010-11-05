@@ -18,7 +18,6 @@ $script = eZScript::instance( array( 'use-modules' => true  ));
 $script->startup();
 $script->initialize();
 
-if (false) {
 
 // Persistent Objects
 
@@ -208,7 +207,6 @@ foreach( $descriptions as $fetch => $description )
 if ( !$isQuiet )
 {
     $cli->output( 'Parsed ' . count( $descriptions ) . ' Fetch definitions' );
-}
 }
 
 // Views
