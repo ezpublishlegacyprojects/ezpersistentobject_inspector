@@ -18,6 +18,7 @@ $script = eZScript::instance( array( 'use-modules' => true  ));
 $script->startup();
 $script->initialize();
 
+if (false) {
 
 // Persistent Objects
 
@@ -142,7 +143,6 @@ foreach( ezFetchDocScanner::scanIndexPageForModules() as $module => $mdesc )
 {
     foreach( ezFetchDocScanner::scanModulePageForFetches( $module ) as $fetch => $desc )
     {
-        //$descriptions["$module/$fetch"] = $desc;
         $descriptions["$module/$fetch"] = ezFetchDocScanner::scanPageForFetch( $module, $fetch );
         $descriptions["$module/$fetch"]['desc'] = $desc['desc'];
     }
@@ -208,6 +208,50 @@ foreach( $descriptions as $fetch => $description )
 if ( !$isQuiet )
 {
     $cli->output( 'Parsed ' . count( $descriptions ) . ' Fetch definitions' );
+}
+}
+
+// Views
+
+// doc parsing phase
+$descriptions = array();
+foreach( ezViewDocScanner::scanIndexPageForModules() as $module => $mdesc )
+{
+    foreach( ezViewDocScanner::scanModulePageForViews( $module ) as $view => $desc )
+    {
+        $descriptions["$module/$view"]['desc'] = $desc['desc'];
+    }
+}
+
+// validation phase
+foreach( $descriptions as $view => $description )
+{
+    list( $modulename, $view ) = explode( '/', $view );
+
+    $module = eZModule::exists( $modulename );
+    if ( !( $module instanceof eZModule ) )
+    {
+        $cli->output( "Documented module $modulename could not be found" );
+        continue;
+    }
+    // not a lot to match here, only view name
+    $views = $module->attribute( 'views' );
+    if ( !array_key_exists( $view, $views ) )
+    {
+        $cli->output( "Documented view $view could not be found in actual module $modulename" );
+        continue;
+    }
+
+    if ( !is_dir( ezViewDocScanner::$storagedir."/$modulename" ) )
+    {
+        mkdir( ezViewDocScanner::$storagedir."/$modulename" );
+    }
+    file_put_contents( ezViewDocScanner::$storagedir."$modulename/$view.php", "<?php\n\$viewdesc = " . var_export( $description, true ) . ";\n?>" );
+}
+
+if ( !$isQuiet )
+{
+    $cli->output( 'Parsed ' . count( $descriptions ) . ' View definitions' );
 }
 
 $script->shutdown();

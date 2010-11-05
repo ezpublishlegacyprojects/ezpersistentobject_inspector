@@ -16,8 +16,6 @@ class ezFetchDocScanner
     static $docend2 = '</table>';
     static $docbegin3 = '<h3>Returns</h3>';
     static $docend3 = '<h3>Description</h3>';
-    static $scalartypes = array( 'string', 'integer', 'boolean', 'float', 'double', 'null' );
-    /// @todo use correct function to get extension root dir
     static $storagedir = 'extension/ezpersistentobject_inspector/classes/fetchdefs/';
 
     static protected $defs = array();
@@ -124,25 +122,6 @@ class ezFetchDocScanner
                     $ptype = strtolower( trim( $matches[2] ) );
                     $desc = trim( $matches[3] );
                     $required = ( trim( $matches[4] ) == 'Yes.' );
-                    /*if ( $fix )
-                    {
-                        if ( isset( self::$known_types[$classname][$attrname] ) )
-                        {
-                            $attrtype = self::$known_types[$classname][$attrname];
-                        }
-                        elseif ( !self::isscalar( $attrtype ) )
-                        {
-                            /// @todo look for descriptions that have 2 links, or a link that is not a declaration of type
-                            if ( preg_match( '#<a href="[^"]+">([^<]+)</a>#', $desc , $matches2 ) )
-                            {
-                                $attrtype .= " [{$matches2[1]}]";
-                            }
-                            elseif ( $attrtype == 'array' && preg_match( '#^(An array of|Array of|The) (hashes|strings|ID numbers)#', $desc , $matches2 ) )
-                            {
-                                $attrtype .= ' [' . $trads[$matches2[2]] .']';
-                            }
-                        }
-                    }*/
                     $out['params'][$pname] = array(
                         'type' => preg_replace( array( '/^bool$/', '/interger/', ), array( 'boolean', 'integer' ), $ptype ),
                         'required' => $required,
