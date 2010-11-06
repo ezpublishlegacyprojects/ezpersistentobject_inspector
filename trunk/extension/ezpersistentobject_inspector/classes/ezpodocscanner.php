@@ -155,7 +155,7 @@ class ezPODocScanner
         }
     }
 
-    function findClassNameGivenLowerCaseName( $classname )
+    static function findClassNameGivenLowerCaseName( $classname )
     {
         $classes = include( 'autoload/ezp_kernel.php' );
         foreach ( $classes as $name => $file )
