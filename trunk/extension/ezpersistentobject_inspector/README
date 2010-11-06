@@ -1,0 +1,37 @@
+Extension eZPersistentObject Inspector for eZ publish
+=====================================================
+
+Goals:
+======
+Produce rich information about the eZPersistenObject subclasses that make up the
+core of eZ Publish by parsing the existing online documentation.
+The information recovered can then be used for multiple purposes, such as
+reinjecting it in the source code as phpdoc comments, or for automated building
+of new APIs and ws interfaces.
+
+Besides persisent objects, the extension can currently parse docs for existing
+views and fetch functions.
+
+
+Requirements:
+=============
+- eZ Publish 4.0 or later
+
+
+Installation:
+=============
+- As per standard eZ Publish extensions: drop in extension dir, activate in site.ini override file or via gui
+- fix the autoload config: if not activated via the admin interface, run the ezpgenerateautoloads.php script
+
+
+Then what:
+==========
+- A script is available that will parse the eZ Publish docs and generate php code
+  with the description of all persistent objects, views and fetches.
+  NB: pre-built descriptions are already available with the extension, the script
+  only needs to be run upon new versions of the docs being released.
+
+- Such description can be recovered in php code using the methods
+  ezPODocScanner::definition( $classname ) 
+  ezFetchDocScanner::definition( $modulename, $fetchname )
+  ezViewDocScanner::definition( $modulename, $fviewname )
