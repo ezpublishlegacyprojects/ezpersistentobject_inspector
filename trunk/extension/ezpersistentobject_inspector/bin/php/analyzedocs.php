@@ -16,6 +16,7 @@ $cli = eZCLI::instance();
 /// @todo get filename from command line
 $script = eZScript::instance( array( 'use-modules' => true  ));
 $script->startup();
+$options = $script->getOptions();
 $script->initialize();
 
 

@@ -4,3 +4,7 @@
   at the same time?
 
 . more options for the cli script
+
+. integrate the code from kc's extension to create ezpos from table def and viceversa
+
+. add a fecth function (tpl op?) to use the recovered info in templates
