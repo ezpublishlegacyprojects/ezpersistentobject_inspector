@@ -8,8 +8,8 @@
 
 class ezPODocScanner
 {
-    static $docroot = 'http://localhost/manuals/ezp_4_0_tech_manual/4_0/reference/objects';
-    static $pagesuffix = '.html';
+    static $docroot = 'http://doc.ez.no/eZ-Publish/Technical-manual/4.x/Reference/Objects';
+    static $pagesuffix = '';
     static $docbegin = '<h4>Attributes</h4>'; //'<table cellspacing="0" cellpadding="2" class="renderedtable">';
     static $docend = '* Indicates whether the attribute provides a pre-fetched value or if it needs to be computed upon request.';
     static $docbegin2 = '<h1>Objects</h1>';
@@ -170,6 +170,17 @@ class ezPODocScanner
                 return $name;
         }
         return false;
+    }
+
+    function fetch( $class )
+    {
+        return array( 'result' => self::definition( $class ) );
+    }
+
+    static function setDocRoot ( $docroot, $pagesuffix )
+    {
+        self::$docroot = $docroot;
+        self::$pagesuffix = $pagesuffix;
     }
 
 }

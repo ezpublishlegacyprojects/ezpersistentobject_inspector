@@ -8,8 +8,8 @@
 
 class ezFetchDocScanner
 {
-    static $docroot = 'http://localhost/manuals/ezp_4_0_tech_manual/4_0/reference/modules';
-    static $pagesuffix = '.html';
+    static $docroot = 'http://doc.ez.no/eZ-Publish/Technical-manual/4.x/Reference/Modules';
+    static $pagesuffix = '';
     static $docbegin = '<h3>Parameters</h3>'; //'<table cellspacing="0" cellpadding="2" class="renderedtable">';
     static $docend = '</table>';
     static $docbegin2 = '<th>Summary</th>';
@@ -171,6 +171,18 @@ class ezFetchDocScanner
             }
             return false;
         }
+    }
+
+    /// This function is also good for the subclass eZViewDocScanner
+    function fetch( $module, $fetch )
+    {
+        return array( 'result' => self::definition( $module, $fetch ) );
+    }
+
+    static function setDocRoot ( $docroot, $pagesuffix )
+    {
+        self::$docroot = $docroot;
+        self::$pagesuffix = $pagesuffix;
     }
 
 }

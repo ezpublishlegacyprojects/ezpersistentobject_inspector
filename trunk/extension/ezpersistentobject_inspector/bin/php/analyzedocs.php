@@ -20,7 +20,12 @@ $options = $script->getOptions();
 $script->initialize();
 
 
+$ini = eZINI::instance( 'ezpo_inspector.ini' );
+$docroot = $îni->variable( 'GeneralSettings', 'DocRoot' );
+$pagesuffix = $îni->variable( 'GeneralSettings', 'PageSuffix' );
+
 // Persistent Objects
+ezPODocScanner::setDocRoot( $docroot['objects'], $pagesuffix );
 
 // doc parsing phase
 $descriptions = array();
@@ -136,6 +141,7 @@ if ( !$isQuiet )
 
 
 // Fetches
+ezFetchDocScanner::setDocRoot( $docroot['fetches'], $pagesuffix );
 
 // doc parsing phase
 $descriptions = array();

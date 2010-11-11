@@ -16,6 +16,7 @@ views and fetch functions.
 Requirements:
 =============
 - eZ Publish 4.0 or later
+- for accessing online documentation for analysys allow_url_fopen must be on in php.ini
 
 
 Installation:
@@ -31,7 +32,14 @@ Then what:
   NB: pre-built descriptions are already available with the extension, the script
   only needs to be run upon new versions of the docs being released.
 
-- Such description can be recovered in php code using the methods
-  ezPODocScanner::definition( $classname ) 
+- Such description can be recovered in templates using the fetch functions
+
+  fetch('internaldocumentation', 'object', hash('class', string))
+  fetch('internaldocumentation', 'fetch', hash('module', string, 'fetch', string))
+  fetch('internaldocumentation', 'view', hash('module', string, 'view', string))
+
+  as well as in php code using the methods
+
+  ezPODocScanner::definition( $classname )
   ezFetchDocScanner::definition( $modulename, $fetchname )
-  ezViewDocScanner::definition( $modulename, $fviewname )
+  ezViewDocScanner::definition( $modulename, $viewname )

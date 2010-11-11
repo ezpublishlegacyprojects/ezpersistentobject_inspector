@@ -1,10 +1,6 @@
-. put path to manual in an ini file
-
 . save generated defs in a per-version dir, so that we can have many versions
   at the same time?
 
 . more options for the cli script
 
 . integrate the code from kc's extension to create ezpos from table def and viceversa
-
-. add a fecth function (tpl op?) to use the recovered info in templates
