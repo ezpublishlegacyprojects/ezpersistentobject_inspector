@@ -101,7 +101,7 @@ class ezPODocScanner
                         elseif ( !self::isscalar( $attrtype ) )
                         {
                             /// @todo look for descriptions that have 2 links, or a link that is not a declaration of type
-                            if ( preg_match( '#<a href="[^"]+">([^<]+)</a>#', $desc , $matches2 ) )
+                            if ( preg_match( '#<a href="[^"]+" *(?:target="_self")? *>([^<]+)</a>#', $desc , $matches2 ) )
                             {
                                 $attrtype .= " [{$matches2[1]}]";
                             }
