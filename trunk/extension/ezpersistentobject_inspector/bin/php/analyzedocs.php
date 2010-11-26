@@ -21,8 +21,8 @@ $script->initialize();
 
 
 $ini = eZINI::instance( 'ezpo_inspector.ini' );
-$docroot = $îni->variable( 'GeneralSettings', 'DocRoot' );
-$pagesuffix = $îni->variable( 'GeneralSettings', 'PageSuffix' );
+$docroot = $ini->variable( 'GeneralSettings', 'DocRoot' );
+$pagesuffix = $ini->variable( 'GeneralSettings', 'PageSuffix' );
 
 // Persistent Objects
 ezPODocScanner::setDocRoot( $docroot['objects'], $pagesuffix );
