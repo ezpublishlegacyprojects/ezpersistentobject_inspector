@@ -98,6 +98,18 @@ $fetchdesc = array (
       'required' => false,
       'desc' => 'Makes it possible to fetch hidden nodes.',
     ),
+    'load_data_map' => 
+    array (
+      'type' => 'boolean',
+      'required' => false,
+      'desc' => 'Forces preloading of data map when fetch is performed. Default is on if fetch returns less than 15 items.',
+    ),
+    'object_name_filter' => 
+    array (
+      'type' => 'string',
+      'required' => false,
+      'desc' => 'searches object names, which start with the given string: \'car\' finds objects which names start with car and cars. \'others\' finds objects which don\'t start with a letter.',
+    ),
   ),
   'return' => 'An array of ezcontentobjecttreenode objects or FALSE.',
   'desc' => 'Fetches the children of a node or a collection of nodes.',
