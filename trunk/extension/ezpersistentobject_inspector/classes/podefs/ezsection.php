@@ -28,6 +28,12 @@ $ezpodesc = array (
       'static' => true,
       'desc' => 'Not in use.',
     ),
+    'identifier' => 
+    array (
+      'type' => 'string',
+      'static' => true,
+      'desc' => 'The identifier string of a section. Available since eZ Publish 4.4.',
+    ),
   ),
   'keys' => 
   array (

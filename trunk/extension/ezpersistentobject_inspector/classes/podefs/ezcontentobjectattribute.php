@@ -140,7 +140,7 @@ $ezpodesc = array (
     array (
       'type' => 'boolean',
       'static' => false,
-      'desc' => 'TRUE if there is attribute contains content, FALSE if it is empty.',
+      'desc' => 'TRUE if the attribute contains content, FALSE if it is empty.',
     ),
     'class_content' => 
     array (

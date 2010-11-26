@@ -146,7 +146,7 @@ $ezpodesc = array (
     array (
       'type' => 'string',
       'static' => true,
-      'desc' => 'The currency symbol (for example &quot;£&quot;).',
+      'desc' => 'The currency symbol (for example &quot;Â£&quot;).',
     ),
     'currency_name' => 
     array (
