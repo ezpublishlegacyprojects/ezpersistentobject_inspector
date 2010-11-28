@@ -4,3 +4,9 @@
 . more options for the cli script
 
 . integrate the code from kc's extension to create ezpos from table def and viceversa
+
+. known types != from the doc:
+  ezcontentobjectattribute.validation_error
+  ezcontentobjectattribute.validation_log
+
+. emit a warning if the obj attr. type from the doc is NULL

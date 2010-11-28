@@ -178,32 +178,15 @@ class ezPOInspector
                     if ( !$persistent )
                     {
                         /// if we know the current obj is not persistent, we have to serialize
-                        /// chidren straight away, or we will not be able to get them later
+                        /// children straight away, or we will not be able to get them later
                         /// using further ajax calls anyway
 
-                        $val = $obj->attribute( $key );
-                        $deftype = $type;
-                        if ( is_object( $val ) )
-                        {
-                            $type = 'object (' . strtolower( get_class( $val ) . ')' );
-                        }
-                        else if ( is_array( $val ) )
-                        {
-                            $type = 'array';
-                            if ( array_keys( $val ) !== range( 0, count( $val )-1 ) )
-                            {
-                                $type = 'hash';
-                            }
-                        }
-                        else
-                        {
-                            /// a scalar! log a warning?
-                            $type = gettype( $val );
-                        }
+                        $tmp = self::objInspect( $obj->attribute( $key ) );
+                        $type = $tmp['type'];
+                        $val = $tmp['value'];
 
-                        /// @todo check if type here is consistent with type from def
+                        /// @todo check if type here is consistent with type from def, log warning if not
 
-                        $val = self::objInspect( $val );
                     }
                 }
                 $out[$key] = array( 'type' => $type, 'value' => $val );
@@ -243,7 +226,7 @@ class ezPOInspector
             }
             else
             {
-                $type = 'object (' .get_class( $obj ) . ')';
+                $type = 'object (' . strtolower( get_class( $obj ) ) . ')';
             }
             $out = array( 'type' => $type, 'value' => $out );
         }
