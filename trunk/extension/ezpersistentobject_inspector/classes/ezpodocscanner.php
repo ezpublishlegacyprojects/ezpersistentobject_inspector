@@ -157,17 +157,27 @@ class ezPODocScanner
 
     static function findClassNameGivenLowerCaseName( $classname )
     {
+        if ( isset( self::$cachedClassNames[$classname] ) )
+        {
+            return self::$cachedClassNames[$classname];
+        }
         $classes = include( 'autoload/ezp_kernel.php' );
         foreach ( $classes as $name => $file )
         {
             if ( strtolower( $name ) == $classname )
+            {
+                self::$cachedClassNames[$classname] = $name;
                 return $name;
+            }
         }
         $classes = include( 'var/autoload/ezp_extension.php' );
         foreach ( $classes as $name => $file )
         {
             if ( strtolower( $name ) == $classname )
+            {
+                self::$cachedClassNames[$classname] = $name;
                 return $name;
+            }
         }
         return false;
     }
@@ -183,5 +193,6 @@ class ezPODocScanner
         self::$pagesuffix = $pagesuffix;
     }
 
+    static $cachedClassNames = array();
 }
 ?>
